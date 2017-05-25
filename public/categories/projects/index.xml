@@ -14,36 +14,42 @@
       <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
       <guid>http://chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</guid>
-      <description>&lt;p&gt;For my senior project in college, my partner and myself decided to implement &lt;a href=&#34;https://en.wikipedia.org/wiki/Royal_Game_of_Ur&#34;&gt;The Royal Game of Ur&lt;/a&gt; with the major focus being on exploring different AI techniques within the board game. The Royal Game of Ur is a two player board game found in he Royal Tomb of Ur. It is considered the second oldest game, second to the Egyptian game &lt;a href=&#34;https://en.wikipedia.org/wiki/Senet&#34;&gt;Senet&lt;/a&gt;. It incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development.&lt;/p&gt;
+      <description>&lt;p&gt;For my senior project in college, my partner and myself decided to implement &lt;a href=&#34;https://en.wikipedia.org/wiki/Royal_Game_of_Ur&#34;&gt;The Royal Game of Ur&lt;/a&gt; with the major focus being on exploring different AI techniques within the board game. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game &lt;a href=&#34;https://en.wikipedia.org/wiki/Senet&#34;&gt;Senet&lt;/a&gt;. The Royal Game of Ur incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development as it will have to incorporate a good balance of game theory as well as decision making.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bm-royalgame.jpg/1024px-Bm-royalgame.jpg&#34; alt=&#34;Royal Game Of ur&#34; title=&#34;Royal Game Of ur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The Royal game of Ur&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;For our project we decided to use the Unity game engine for development. Their were a few reasons for that.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;There are a lot of resources available due to its popularity.&lt;/li&gt;
-&lt;li&gt;It is a free resource.&lt;/li&gt;
-&lt;li&gt;It has great flexibility in target environments.&lt;/li&gt;
-&lt;li&gt;It is scripted in C# which I personally wished to gain experience using.&lt;/li&gt;
+&lt;li&gt;There are a lot of educational resources available due to its popularity.&lt;/li&gt;
+&lt;li&gt;It is a free service (until you hit &lt;a href=&#34;https://blogs.unity3d.com/2016/06/16/evolution-of-our-products-and-pricing/&#34;&gt;$100k in revenue&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;It has great flexibility in &lt;a href=&#34;https://unity3d.com/unity/multiplatform&#34;&gt;deployment environments&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;It is scripted in C# which I personally wanted more experience using (You can also use JS).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Before jumping into development of the Game Of Ur, I wanted some experience with the environment. I started by following a few tutorials available on the Unity site. I first followed their &lt;a href=&#34;https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial&#34;&gt;UFO&lt;/a&gt; example, then their &lt;a href=&#34;https://unity3d.com/learn/tutorials/tic-tac-toe/introduction-and-setting-project?playlist=17111&#34;&gt;Tic-Tac-Toe&lt;/a&gt; example and finally their &lt;a href=&#34;https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial&#34;&gt;Rougelike&lt;/a&gt;. All three examples have the benefit of concluding with a fully working game. The tutorials bring you through all of the steps of game development. The Rougelike specifically had some compatibility issues with the current version of Unity, but they did include a PDF of needed changes. One issue I had with all the tutorials is they didn&amp;rsquo;t explain all the components they used. Using this &lt;a href=&#34;https://unity3d.com/learn/tutorials/s/scripting&#34;&gt;page&lt;/a&gt; in conjunction with the tutorials I was able to answer most of my questions.&lt;/p&gt;
+&lt;p&gt;Before jumping into development of the Game Of Ur, I wanted some experience with the environment. I started by following a few tutorials available on the Unity site. I first followed their &lt;a href=&#34;https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial&#34;&gt;UFO&lt;/a&gt; tutorial, then their &lt;a href=&#34;https://unity3d.com/learn/tutorials/tic-tac-toe/introduction-and-setting-project?playlist=17111&#34;&gt;Tic-Tac-Toe&lt;/a&gt; tutorial and finally their &lt;a href=&#34;https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial&#34;&gt;Rougelike&lt;/a&gt; tutorial. All three tutorials have the benefit that you end up with a fully working game. The tutorials bring you through all of the steps of game development. The Rougelike tutorial specifically had some compatibility issues with the current version of Unity, but they did include a PDF of needed changes. One issue I had with all the tutorials is that they didn&amp;rsquo;t explain all the components they used. Using this &lt;a href=&#34;https://unity3d.com/learn/tutorials/s/scripting&#34;&gt;page&lt;/a&gt; in conjunction with the tutorials I was able to answer most of my questions.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://unity3d.com/sites/default/files/learn-playlist/icon/2droguelike-thumb1.jpg&#34; alt=&#34;Rouge-Like&#34; title=&#34;Rouge Like&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://unity3d.com/sites/default/files/learn-playlist/icon/2droguelike-thumb1.jpg&#34; alt=&#34;Rouge-Like tutorial screenshot&#34; title=&#34;Rouge Like&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;After finishing these tutorials, I felt decently comfortable the engine. I most certainty did not feel like I knew or could properly use all the features, but I learned the API is very developer friendly. The components are very well designed and documented.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;An image from the rouge-like tutorial&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;As a testament to this, after only these 3 tutorials I was able to build to build a chess game and chess AI inside the engine. I chose to implement chess because of my own interest in the game as well as its technical similarities to the Royal Game of Ur. I began by simply designing the UI of the game. Unity makes it very easy to draw and render sprites so this wasn&amp;rsquo;t to difficult. Game entities are all represented in unity as Game Objects. With the game objects you can add components such as Sprite-Renderers, Collision-detection and Physic Properties. You can edit these very simply inside the editor as well as from code. The object orientated approach is what makes the engine so simple and fun to use.&lt;/p&gt;
+&lt;p&gt;After finishing these tutorials, I felt decently comfortable the engine. I certainty did not feel like I knew all the features, but I learned the API is very developer friendly. The components are very well designed and documented making learning on the spot simple.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://chris-chevalier.com/chess.PNG&#34; alt=&#34;Chess&#34; title=&#34;Rouge Like&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As a testament to this, after only these 3 tutorials I was able to build a chess game and AI inside the engine. I chose to implement chess because of my own interest in the game as well as its technical similarities to the Royal Game of Ur. I began by simply designing the UI of the game. Unity makes it very easy to draw and render sprites so this wasn&amp;rsquo;t to difficult. Game entities are all represented in unity as Game Objects. Within the game objects you can add components such as Sprite-Renderers, Collision-Detectors and Physic Properties. You can edit these very simply inside the editor as well as from code. The object orientated approach is what makes the engine so simple and fun to use.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://chris-chevalier.com/chess.gif&#34; alt=&#34;Chess&#34; title=&#34;Chess Gif&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;As of writing, I only implemented pawns&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Having created the UI first, I inadvertently started heading down a MVC approach for my code. This works out for the best as, it greatly simplified my ability to implement the AI logic. For my current AI I simply chose to implement a &lt;a href=&#34;https://en.wikipedia.org/wiki/Minimax&#34;&gt;Minimax&lt;/a&gt; decision tree. Minimax work on the theory, both players want to maximize there game score while minmizing there opponents. For my chess AI I chose this score to be the sum of the players pieces values(pond = 1, king = 10&amp;hellip; etc) minus the AI&amp;rsquo;s sum. This works fine for my basic example but in a real engine you would want to incorporate other factors such as board position, checkmate possibilities and others.&lt;/p&gt;
+&lt;p&gt;Having created the UI first, I inadvertently had already started taking a MVC approach to managing my code. This works out for the best as it greatly simplified my ability to implement the AI logic. For my current AI I simply chose to implement a &lt;a href=&#34;https://en.wikipedia.org/wiki/Minimax&#34;&gt;Minimax&lt;/a&gt; decision tree. Minimax work on the theory, both players want to maximize there game score while minimizing their opponents. For my chess AI I chose this score to be the sum of the players pieces (Using their &lt;a href=&#34;https://en.wikipedia.org/wiki/Chess_piece_relative_value&#34;&gt;relative values&lt;/a&gt;) minus the AI&amp;rsquo;s sum. This works fine for my basic example but in a real engine you would want to incorporate other factors such as board position, checkmate possibilities and others.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Plminmax.gif/400px-Plminmax.gif&#34; alt=&#34;Minimax&#34; title=&#34;Minimax&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;All in all, I&amp;rsquo;m happy with this venture. It&amp;rsquo;s nice to learn new things and I&amp;rsquo;m excited to mess around more with game development in my spare time.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Minimax decision tree&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;All in all, I&amp;rsquo;m happy with this venture. It&amp;rsquo;s always empowering to learn new technologies and I&amp;rsquo;m excited to mess around more with game development in my spare time.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/chevalierc/unity-chess&#34;&gt;Feel free to look through my code here&lt;/a&gt;&lt;/p&gt;
 </description>
