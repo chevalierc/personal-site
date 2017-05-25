@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chris Chevalier</title>
-    <link>http://www.chris-chevalier.com/categories/projects/index.xml</link>
+    <link>http://chris-chevalier.com/categories/projects/index.xml</link>
     <description>Recent content on Chris Chevalier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://www.chris-chevalier.com/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://chris-chevalier.com/categories/projects/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Developing Chess in the Unity game engine</title>
-      <link>http://www.chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</link>
+      <link>http://chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</link>
       <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</guid>
+      <guid>http://chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</guid>
       <description>&lt;p&gt;For my senior project in college, my partner and myself decided to implement &lt;a href=&#34;https://en.wikipedia.org/wiki/Royal_Game_of_Ur&#34;&gt;The Royal Game of Ur&lt;/a&gt; with the major focus being on exploring different AI techniques within the board game. The Royal Game of Ur is a two player board game found in he Royal Tomb of Ur. It is considered the second oldest game, second to the Egyptian game &lt;a href=&#34;https://en.wikipedia.org/wiki/Senet&#34;&gt;Senet&lt;/a&gt;. It incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bm-royalgame.jpg/1024px-Bm-royalgame.jpg&#34; alt=&#34;Royal Game Of ur&#34; title=&#34;Royal Game Of ur&#34; /&gt;&lt;/p&gt;
@@ -35,7 +35,7 @@
 
 &lt;p&gt;As a testament to this, after only these 3 tutorials I was able to build to build a chess game and chess AI inside the engine. I chose to implement chess because of my own interest in the game as well as its technical similarities to the Royal Game of Ur. I began by simply designing the UI of the game. Unity makes it very easy to draw and render sprites so this wasn&amp;rsquo;t to difficult. Game entities are all represented in unity as Game Objects. With the game objects you can add components such as Sprite-Renderers, Collision-detection and Physic Properties. You can edit these very simply inside the editor as well as from code. The object orientated approach is what makes the engine so simple and fun to use.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://www.chris-chevalier.com/chess.PNG&#34; alt=&#34;Chess&#34; title=&#34;Rouge Like&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://chris-chevalier.com/chess.PNG&#34; alt=&#34;Chess&#34; title=&#34;Rouge Like&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;As of writing, I only implemented pawns&lt;/em&gt;&lt;/p&gt;
 
@@ -51,10 +51,10 @@
     
     <item>
       <title>Machine Generated Music</title>
-      <link>http://www.chris-chevalier.com/blog/2017/05/14/machine-generated-music/</link>
+      <link>http://chris-chevalier.com/blog/2017/05/14/machine-generated-music/</link>
       <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.chris-chevalier.com/blog/2017/05/14/machine-generated-music/</guid>
+      <guid>http://chris-chevalier.com/blog/2017/05/14/machine-generated-music/</guid>
       <description>
 
 &lt;p&gt;For my colleges Intro to AI class final project myself and another decided to explore composing music using machine learning. This is in no way a unique project. Others have done similar before. My favorite implementation I saw was this &lt;a href=&#34;https://aiexperiments.withgoogle.com/ai-duet&#34;&gt;program&lt;/a&gt; which uses neural networks to allow you to play a piano duet with the AI.&lt;/p&gt;
