@@ -32,8 +32,6 @@ Minimax works on the theory that each player is trying to maximize there own sco
 
 It simply takes the sum of all the tile positions of your pieces and subtracts the sum of all the tile positions of your opponent. The evaluation function greatly determines the personality of your AI. It is much more an art then a science to create one. For this game I focused on having the AI get to rosette tiles and safe tiles. Because the first four tiles have a higher values than the next few tiles it encourages the AI to stay in the safe row until it either can't or it is worth capturing an opponent piece. The tile value increases as it moves along the path to encourage the AI to move towards the end. Finally having a piece finish the path is worth much more than all else because ultimately that is the most important goal of the game.
 
-![Expectiminimax Demonstration](/expected-minimax.jpg "Expectiminimax Demonstration")
-
 Because the game is [Stochastic (random)](https://en.wikipedia.org/wiki/Stochastic) we had to use Expectiminimax. This varies from traditional Minimax in that each nodes utility is multiplied by its probability. The pseudocode for this algorithm is available on its Wikipedia page.
 
 [Feel free to look through my code here](https://github.com/chevalierc/RoyalGameOfUr)
