@@ -1,4 +1,4 @@
-baseurl = "https://chris-chevalier.herokuapp.com/"
+baseurl = "http://chris-chevalier.com/"
 title = "Chris Chevalier"
 languageCode = "en-us"
 # disqusShortname = "your_disqus_shortname" # Optional, enable Disqus integration
