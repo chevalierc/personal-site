@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Post-rsses on Chris Chevalier</title>
+    <link>http://chris-chevalier.com/post/index.xml</link>
+    <description>Recent content in Post-rsses on Chris Chevalier</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 May 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://chris-chevalier.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Developing Chess in the Unity game engine</title>
+      <link>http://chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</guid>
+      <description>&lt;p&gt;For my senior project in college, my partner and myself decided to implement &lt;a href=&#34;https://en.wikipedia.org/wiki/Royal_Game_of_Ur&#34;&gt;The Royal Game of Ur&lt;/a&gt; with the major focus being on exploring different AI techniques within the board game. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game &lt;a href=&#34;https://en.wikipedia.org/wiki/Senet&#34;&gt;Senet&lt;/a&gt;. The Royal Game of Ur incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development as it will have to incorporate a good balance of game theory as well as decision making.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bm-royalgame.jpg/1024px-Bm-royalgame.jpg&#34; alt=&#34;Royal Game Of ur&#34; title=&#34;Royal Game Of ur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The Royal game of Ur&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;For our project we decided to use the Unity game engine for development. Their were a few reasons for that.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There are a lot of educational resources available due to its popularity.&lt;/li&gt;
+&lt;li&gt;It is a free service (until you hit &lt;a href=&#34;https://blogs.unity3d.com/2016/06/16/evolution-of-our-products-and-pricing/&#34;&gt;$100k in revenue&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;It has great flexibility in &lt;a href=&#34;https://unity3d.com/unity/multiplatform&#34;&gt;deployment environments&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;It is scripted in C# which I personally wanted more experience using (You can also use JS).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Before jumping into development of the Game Of Ur, I wanted some experience with the environment. I started by following a few tutorials available on the Unity site. I first followed their &lt;a href=&#34;https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial&#34;&gt;UFO&lt;/a&gt; tutorial, then their &lt;a href=&#34;https://unity3d.com/learn/tutorials/tic-tac-toe/introduction-and-setting-project?playlist=17111&#34;&gt;Tic-Tac-Toe&lt;/a&gt; tutorial and finally their &lt;a href=&#34;https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial&#34;&gt;Rougelike&lt;/a&gt; tutorial. All three tutorials have the benefit that you end up with a fully working game. The tutorials bring you through all of the steps of game development. The Rougelike tutorial specifically had some compatibility issues with the current version of Unity, but they did include a PDF of needed changes. One issue I had with all the tutorials is that they didn&amp;rsquo;t explain all the components they used. Using this &lt;a href=&#34;https://unity3d.com/learn/tutorials/s/scripting&#34;&gt;page&lt;/a&gt; in conjunction with the tutorials I was able to answer most of my questions.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://unity3d.com/sites/default/files/learn-playlist/icon/2droguelike-thumb1.jpg&#34; alt=&#34;Rouge-Like tutorial screenshot&#34; title=&#34;Rouge Like&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;An image from the rouge-like tutorial&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;After finishing these tutorials, I felt decently comfortable the engine. I certainty did not feel like I knew all the features, but I learned the API is very developer friendly. The components are very well designed and documented making learning on the spot simple.&lt;/p&gt;
+
+&lt;p&gt;As a testament to this, after only these 3 tutorials I was able to build a chess game and AI inside the engine. I chose to implement chess because of my own interest in the game as well as its technical similarities to the Royal Game of Ur. I began by simply designing the UI of the game. Unity makes it very easy to draw and render sprites so this wasn&amp;rsquo;t to difficult. Game entities are all represented in unity as Game Objects. Within the game objects you can add components such as Sprite-Renderers, Collision-Detectors and Physic Properties. You can edit these very simply inside the editor as well as from code. The object orientated approach is what makes the engine so simple and fun to use.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://chris-chevalier.com/chess.gif&#34; alt=&#34;Chess&#34; title=&#34;Chess Gif&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;As of writing, I only implemented pawns&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Having created the UI first, I inadvertently had already started taking a MVC approach to managing my code. This works out for the best as it greatly simplified my ability to implement the AI logic. For my current AI I simply chose to implement a &lt;a href=&#34;https://en.wikipedia.org/wiki/Minimax&#34;&gt;Minimax&lt;/a&gt; decision tree. Minimax work on the theory, both players want to maximize there game score while minimizing their opponents. For my chess AI I chose this score to be the sum of the players pieces (Using their &lt;a href=&#34;https://en.wikipedia.org/wiki/Chess_piece_relative_value&#34;&gt;relative values&lt;/a&gt;) minus the AI&amp;rsquo;s sum. This works fine for my basic example but in a real engine you would want to incorporate other factors such as board position, checkmate possibilities and others.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Plminmax.gif/400px-Plminmax.gif&#34; alt=&#34;Minimax&#34; title=&#34;Minimax&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Minimax decision tree&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;All in all, I&amp;rsquo;m happy with this venture. It&amp;rsquo;s always empowering to learn new technologies and I&amp;rsquo;m excited to mess around more with game development in my spare time.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/chevalierc/unity-chess&#34;&gt;Feel free to look through my code here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Machine Generated Music</title>
+      <link>http://chris-chevalier.com/blog/2017/05/14/machine-generated-music/</link>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://chris-chevalier.com/blog/2017/05/14/machine-generated-music/</guid>
+      <description>
+
+&lt;p&gt;For my colleges Intro to AI class final project myself and another decided to explore composing music using machine learning. This is in no way a unique project. Others have done similar before. My favorite implementation I saw was this &lt;a href=&#34;https://aiexperiments.withgoogle.com/ai-duet&#34;&gt;program&lt;/a&gt; which uses neural networks to allow you to play a piano duet with the AI.&lt;/p&gt;
+
+&lt;h2 id=&#34;project-background&#34;&gt;Project Background:&lt;/h2&gt;
+
+&lt;p&gt;Bitstream files such as MP3 and Wavs which store music as sine waves would be very difficult to use as the data is continuous and unlabeled. It would be virtually impossible to parse the information needed from these files.&lt;/p&gt;
+
+&lt;p&gt;Instead we used midi files. Midis are discrete and store data as events of pitch, velocity and location. From this we would be able to parse the data very easily. It also had the benefit of being an easy format for our system to compose music. We chose to use the &lt;a href=&#34;https://github.com/vishnubob/python-midi/&#34;&gt;midi library python-midi&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;machine-learning-theory&#34;&gt;Machine Learning Theory:&lt;/h2&gt;
+
+&lt;p&gt;Based on research we decided to use Markov chains for our implementation. Markov chains are on the simpler side of machine learning but haven been proven to be affective in AI music composition. Markov chains are a process created by Russian mathematician Andrey Markov. Markov chains look at the probability of moving from one state to another state. The benefit of Markov chains are they make their decision not off the full history of the state but the previous x number of states it took to get to the current state. How many states prior to the successor states you look at it called the order.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Markovkate_01.svg/563px-Markovkate_01.svg.png&#34; alt=&#34;Markov Visualization&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This example is of order 1 as it is only looking at just one prior state.&lt;/p&gt;
+
+&lt;p&gt;For our project we implemented the Markov Class by hand to allow us to extend it where needed. For it&amp;rsquo;s implementation it stored data a dictionary of transition states, which contained a dictionary of successor states and their occurrences. Because we planned to build Markov chains using a large source of &lt;a href=&#34;http://pianola.co.nz/public/index.php/web/zip_download&#34;&gt;data&lt;/a&gt;, we built methods to store and retrieve the Markov chain as a JSON file. Our implementation could add each state transition at a speed of O(n) and could read each state transition at a speed of O(1). Because we used dictionaries there was amortized time as well.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//How our Markov chains were stored:
+{
+    &amp;quot;A&amp;quot;: {
+        &amp;quot;B&amp;quot;: 12,
+        &amp;quot;D&amp;quot;: 4
+    },
+    &amp;quot;E&amp;quot;: {
+        F: 2,
+        G: 10
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We were able to store both notes (whether a single chord or note) as well as rhythm transitions in the same Markov implementation. It would be possible to store both pieces of data in the same object but we chose not to (for simplicity and to reduce the possible number of states). Interestingly the JSON representation of our Markov Chain would grow larger than the source data. A Markov Chain file looking at pitch at an order of 2, sources from 73mb of data produced a Markov file of 109MB. On our basic Lenovo laptops this took 10 to 20 minutes to build.&lt;/p&gt;
+
+&lt;h2 id=&#34;composing&#34;&gt;Composing:&lt;/h2&gt;
+
+&lt;p&gt;The portion of our program that composed music from the Markov chains proved simple to build. It would randomly produce a list of notes of the same length as our Markov chains order. From there it would then loop grabbing a successor note based on the previous selected notes. If it ever reached a state where the transition state didn’t exist in the Markov it would simply delete the previous note and try again. If it ever reached a length less than the Markov chain order It would generate the note randomly. Rhythm was generated identically.&lt;/p&gt;
+
+&lt;p&gt;Because the composer built the song using a rhythm and note Markov file, we were able to experiment mixing up methods. Most often, we chose to use a Markov file of rhythm of order 4 and pitch of order 2. We experimented also with using larger Markov files for pitch and smaller files for rhythm in an attempt to simplify the rhythm. Another way we attempted to simplify the rhythm was source the rhythm Markov from classical music and the pitches from our &lt;a href=&#34;http://pianola.co.nz/public/index.php/web/zip_download&#34;&gt;ragtime files&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion:&lt;/h2&gt;
+
+&lt;p&gt;Although we were able to generate objectively good pitch transitions in our music, rhythm proved to be less suited for our Markov chains implementation. This is most likely due to rhythms having to follow a time signature and our source music existing in different time signatures. If we had more time we would have tried implementing Neural Networks in our composition (most of the most successful musical machine learning projects use such).&lt;/p&gt;
+
+&lt;p&gt;Here is a quick piece of music generated by our program. As you can see the rhythm get&amp;rsquo;s a bit wonky at the end.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.youtube.com/watch?feature=player_embedded&amp;v=bgaoaCo746M
+&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img.youtube.com/vi/bgaoaCo746M/0.jpg&#34;
+alt=&#34;IMAGE ALT TEXT HERE&#34; width=&#34;240&#34; height=&#34;180&#34; border=&#34;10&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

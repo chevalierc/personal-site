@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Machine Generated Music &middot; Christopher Chevalier</title>
+
+  
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/poole.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/hyde.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/hyde-x.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://chris-chevalier.com/touch-icon-144-precomposed.png">
+  <link href="http://chris-chevalier.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Site of Chris Chevalier">
+  <meta name="keywords" content="ai,markov chains,midi">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking code', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body class="theme-base-0d">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+        <img src="https://www.gravatar.com/avatar/1969f906f1280426301ca85c0cec8aad?s=200"
+             alt="gravatar" title="Christopher Chevalier">
+      
+      <h1>Christopher Chevalier</h1>
+      <p class="lead">Computer Science Student</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://chris-chevalier.com/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://chris-chevalier.com/about/">About Me</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://chris-chevalier.com/resume.pdf">Resume</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/chevalierc"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://www.linkedin.com/in/christopher-chevalier/"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2017 <a href="http://chris-chevalier.com/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Machine Generated Music</h1>
+    <span class="post-date">May 14, 2017
+    
+    <br/>
+    <a class="label" href="http://chris-chevalier.com/categories/projects">projects</a>
+    </span>
+    
+
+<p>For my colleges Intro to AI class final project myself and another decided to explore composing music using machine learning. This is in no way a unique project. Others have done similar before. My favorite implementation I saw was this <a href="https://aiexperiments.withgoogle.com/ai-duet">program</a> which uses neural networks to allow you to play a piano duet with the AI.</p>
+
+<h2 id="project-background">Project Background:</h2>
+
+<p>Bitstream files such as MP3 and Wavs which store music as sine waves would be very difficult to use as the data is continuous and unlabeled. It would be virtually impossible to parse the information needed from these files.</p>
+
+<p>Instead we used midi files. Midis are discrete and store data as events of pitch, velocity and location. From this we would be able to parse the data very easily. It also had the benefit of being an easy format for our system to compose music. We chose to use the <a href="https://github.com/vishnubob/python-midi/">midi library python-midi</a>.</p>
+
+<h2 id="machine-learning-theory">Machine Learning Theory:</h2>
+
+<p>Based on research we decided to use Markov chains for our implementation. Markov chains are on the simpler side of machine learning but haven been proven to be affective in AI music composition. Markov chains are a process created by Russian mathematician Andrey Markov. Markov chains look at the probability of moving from one state to another state. The benefit of Markov chains are they make their decision not off the full history of the state but the previous x number of states it took to get to the current state. How many states prior to the successor states you look at it called the order.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Markovkate_01.svg/563px-Markovkate_01.svg.png" alt="Markov Visualization" /></p>
+
+<p>This example is of order 1 as it is only looking at just one prior state.</p>
+
+<p>For our project we implemented the Markov Class by hand to allow us to extend it where needed. For it&rsquo;s implementation it stored data a dictionary of transition states, which contained a dictionary of successor states and their occurrences. Because we planned to build Markov chains using a large source of <a href="http://pianola.co.nz/public/index.php/web/zip_download">data</a>, we built methods to store and retrieve the Markov chain as a JSON file. Our implementation could add each state transition at a speed of O(n) and could read each state transition at a speed of O(1). Because we used dictionaries there was amortized time as well.</p>
+
+<pre><code>//How our Markov chains were stored:
+{
+    &quot;A&quot;: {
+        &quot;B&quot;: 12,
+        &quot;D&quot;: 4
+    },
+    &quot;E&quot;: {
+        F: 2,
+        G: 10
+    }
+}
+</code></pre>
+
+<p>We were able to store both notes (whether a single chord or note) as well as rhythm transitions in the same Markov implementation. It would be possible to store both pieces of data in the same object but we chose not to (for simplicity and to reduce the possible number of states). Interestingly the JSON representation of our Markov Chain would grow larger than the source data. A Markov Chain file looking at pitch at an order of 2, sources from 73mb of data produced a Markov file of 109MB. On our basic Lenovo laptops this took 10 to 20 minutes to build.</p>
+
+<h2 id="composing">Composing:</h2>
+
+<p>The portion of our program that composed music from the Markov chains proved simple to build. It would randomly produce a list of notes of the same length as our Markov chains order. From there it would then loop grabbing a successor note based on the previous selected notes. If it ever reached a state where the transition state didn’t exist in the Markov it would simply delete the previous note and try again. If it ever reached a length less than the Markov chain order It would generate the note randomly. Rhythm was generated identically.</p>
+
+<p>Because the composer built the song using a rhythm and note Markov file, we were able to experiment mixing up methods. Most often, we chose to use a Markov file of rhythm of order 4 and pitch of order 2. We experimented also with using larger Markov files for pitch and smaller files for rhythm in an attempt to simplify the rhythm. Another way we attempted to simplify the rhythm was source the rhythm Markov from classical music and the pitches from our <a href="http://pianola.co.nz/public/index.php/web/zip_download">ragtime files</a>.</p>
+
+<h2 id="conclusion">Conclusion:</h2>
+
+<p>Although we were able to generate objectively good pitch transitions in our music, rhythm proved to be less suited for our Markov chains implementation. This is most likely due to rhythms having to follow a time signature and our source music existing in different time signatures. If we had more time we would have tried implementing Neural Networks in our composition (most of the most successful musical machine learning projects use such).</p>
+
+<p>Here is a quick piece of music generated by our program. As you can see the rhythm get&rsquo;s a bit wonky at the end.</p>
+
+<p><a href="http://www.youtube.com/watch?feature=player_embedded&v=bgaoaCo746M
+" target="_blank"><img src="http://img.youtube.com/vi/bgaoaCo746M/0.jpg"
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a></p>
+
+  </div>
+  
+</div>
+
+
+
+
+<script src="http://chris-chevalier.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

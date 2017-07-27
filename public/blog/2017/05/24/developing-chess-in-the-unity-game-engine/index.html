@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Developing Chess in the Unity game engine &middot; Christopher Chevalier</title>
+
+  
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/poole.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/hyde.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/hyde-x.css">
+  <link rel="stylesheet" href="http://chris-chevalier.com/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://chris-chevalier.com/touch-icon-144-precomposed.png">
+  <link href="http://chris-chevalier.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Site of Chris Chevalier">
+  <meta name="keywords" content="ai,chess,c#,unity">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking code', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body class="theme-base-0d">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+        <img src="https://www.gravatar.com/avatar/1969f906f1280426301ca85c0cec8aad?s=200"
+             alt="gravatar" title="Christopher Chevalier">
+      
+      <h1>Christopher Chevalier</h1>
+      <p class="lead">Computer Science Student</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://chris-chevalier.com/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://chris-chevalier.com/about/">About Me</a></li>
+      
+      <li class="sidebar-nav-item"><a href="http://chris-chevalier.com/resume.pdf">Resume</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/chevalierc"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://www.linkedin.com/in/christopher-chevalier/"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2017 <a href="http://chris-chevalier.com/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Developing Chess in the Unity game engine</h1>
+    <span class="post-date">May 24, 2017
+    
+    <br/>
+    <a class="label" href="http://chris-chevalier.com/categories/projects">projects</a>
+    </span>
+    <p>For my senior project in college, my partner and myself decided to implement <a href="https://en.wikipedia.org/wiki/Royal_Game_of_Ur">The Royal Game of Ur</a> with the major focus being on exploring different AI techniques within the board game. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game <a href="https://en.wikipedia.org/wiki/Senet">Senet</a>. The Royal Game of Ur incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development as it will have to incorporate a good balance of game theory as well as decision making.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bm-royalgame.jpg/1024px-Bm-royalgame.jpg" alt="Royal Game Of ur" title="Royal Game Of ur" /></p>
+
+<p><em>The Royal game of Ur</em></p>
+
+<p>For our project we decided to use the Unity game engine for development. Their were a few reasons for that.</p>
+
+<ul>
+<li>There are a lot of educational resources available due to its popularity.</li>
+<li>It is a free service (until you hit <a href="https://blogs.unity3d.com/2016/06/16/evolution-of-our-products-and-pricing/">$100k in revenue</a>)</li>
+<li>It has great flexibility in <a href="https://unity3d.com/unity/multiplatform">deployment environments</a>.</li>
+<li>It is scripted in C# which I personally wanted more experience using (You can also use JS).</li>
+</ul>
+
+<p>Before jumping into development of the Game Of Ur, I wanted some experience with the environment. I started by following a few tutorials available on the Unity site. I first followed their <a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial">UFO</a> tutorial, then their <a href="https://unity3d.com/learn/tutorials/tic-tac-toe/introduction-and-setting-project?playlist=17111">Tic-Tac-Toe</a> tutorial and finally their <a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial">Rougelike</a> tutorial. All three tutorials have the benefit that you end up with a fully working game. The tutorials bring you through all of the steps of game development. The Rougelike tutorial specifically had some compatibility issues with the current version of Unity, but they did include a PDF of needed changes. One issue I had with all the tutorials is that they didn&rsquo;t explain all the components they used. Using this <a href="https://unity3d.com/learn/tutorials/s/scripting">page</a> in conjunction with the tutorials I was able to answer most of my questions.</p>
+
+<p><img src="https://unity3d.com/sites/default/files/learn-playlist/icon/2droguelike-thumb1.jpg" alt="Rouge-Like tutorial screenshot" title="Rouge Like" /></p>
+
+<p><em>An image from the rouge-like tutorial</em></p>
+
+<p>After finishing these tutorials, I felt decently comfortable the engine. I certainty did not feel like I knew all the features, but I learned the API is very developer friendly. The components are very well designed and documented making learning on the spot simple.</p>
+
+<p>As a testament to this, after only these 3 tutorials I was able to build a chess game and AI inside the engine. I chose to implement chess because of my own interest in the game as well as its technical similarities to the Royal Game of Ur. I began by simply designing the UI of the game. Unity makes it very easy to draw and render sprites so this wasn&rsquo;t to difficult. Game entities are all represented in unity as Game Objects. Within the game objects you can add components such as Sprite-Renderers, Collision-Detectors and Physic Properties. You can edit these very simply inside the editor as well as from code. The object orientated approach is what makes the engine so simple and fun to use.</p>
+
+<p><img src="/chess.gif" alt="Chess" title="Chess Gif" /></p>
+
+<p><em>As of writing, I only implemented pawns</em></p>
+
+<p>Having created the UI first, I inadvertently had already started taking a MVC approach to managing my code. This works out for the best as it greatly simplified my ability to implement the AI logic. For my current AI I simply chose to implement a <a href="https://en.wikipedia.org/wiki/Minimax">Minimax</a> decision tree. Minimax work on the theory, both players want to maximize there game score while minimizing their opponents. For my chess AI I chose this score to be the sum of the players pieces (Using their <a href="https://en.wikipedia.org/wiki/Chess_piece_relative_value">relative values</a>) minus the AI&rsquo;s sum. This works fine for my basic example but in a real engine you would want to incorporate other factors such as board position, checkmate possibilities and others.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Plminmax.gif/400px-Plminmax.gif" alt="Minimax" title="Minimax" /></p>
+
+<p><em>Minimax decision tree</em></p>
+
+<p>All in all, I&rsquo;m happy with this venture. It&rsquo;s always empowering to learn new technologies and I&rsquo;m excited to mess around more with game development in my spare time.</p>
+
+<p><a href="https://github.com/chevalierc/unity-chess">Feel free to look through my code here</a></p>
+
+  </div>
+  
+</div>
+
+
+
+
+<script src="http://chris-chevalier.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
