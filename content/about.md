@@ -6,7 +6,7 @@ keywords = ["andrei mihu", "about", "website", "blog", "contact"]
 menu = "main"
 +++
 
-![Myself](profile-picture.jpg "Myself")
+![Myself](/profile-picture.jpg "Myself")
 
 Hi, I'm Chris! I'm a developer and recent graduate of Wentworth Institute of Technology. I have a passion for art, technology, and nature.
 
