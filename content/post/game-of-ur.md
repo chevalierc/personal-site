@@ -1,6 +1,6 @@
 +++
 date = "2017-07-26"
-title = "Developing an AI for 5600 Year Old Board Game"
+title = "Developing an AI for a 5600 Year Old Board Game"
 
 keywords = ["ai", "boardgame", "c#", 'unity']
 categories = ["projects"]
@@ -9,8 +9,6 @@ categories = ["projects"]
 For my senior project in college, my partner and myself decided to implement [The Royal Game of Ur](https://en.wikipedia.org/wiki/Royal_Game_of_Ur). The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game [Senet](https://en.wikipedia.org/wiki/Senet). The Royal Game of Ur incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development as it will have to incorporate a good balance of game theory as well as decision making.
 
 ![Royal Game Of Ur](/board.jpg "The Board")
-
-*The Royal game of Ur*
 
 ## The Royal Game of Ur Rules
 
@@ -22,7 +20,7 @@ Each roll, you can move a single piece the sum of your dice. You can move to a f
 
 ![Rosette Location](/rosette-locations.jpg "Rosette Locations")
 
-##AI Approach
+## AI Approach
 
 For the project I used a variation of the [Minimax](https://en.wikipedia.org/wiki/Minimax) algorithm called [Expectiminimax](https://en.wikipedia.org/wiki/Expectiminimax_tree). This aversion varies from the original algorithm in that incorporates probability.
 
@@ -37,3 +35,5 @@ It simply takes the sum of all the tile positions of your pieces and subtracts t
 ![Expectiminimax Demonstration](/expected-minimax.jpg "Expectiminimax Demonstration")
 
 Because the game is [Stochastic (random)](https://en.wikipedia.org/wiki/Stochastic) we had to use Expectiminimax. This varies from traditional Minimax in that each nodes utility is multiplied by its probability. The pseudocode for this algorithm is available on its Wikipedia page.
+
+[Feel free to look through my code here](https://github.com/chevalierc/RoyalGameOfUr)
