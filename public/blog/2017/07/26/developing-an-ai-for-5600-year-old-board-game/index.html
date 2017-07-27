@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Developing an AI for 5600 Year Old Board Game &middot; Christopher Chevalier</title>
+
+  
+  <link rel="stylesheet" href="https://chris-chevalier.herokuapp.com/css/poole.css">
+  <link rel="stylesheet" href="https://chris-chevalier.herokuapp.com/css/hyde.css">
+  <link rel="stylesheet" href="https://chris-chevalier.herokuapp.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://chris-chevalier.herokuapp.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://chris-chevalier.herokuapp.com/css/hyde-x.css">
+  <link rel="stylesheet" href="https://chris-chevalier.herokuapp.com/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://chris-chevalier.herokuapp.com/touch-icon-144-precomposed.png">
+  <link href="https://chris-chevalier.herokuapp.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="Site of Chris Chevalier">
+  <meta name="keywords" content="ai,boardgame,c#,unity">
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking code', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+</head>
+<body class="theme-base-0d">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Christopher Chevalier</h1>
+      <p class="lead">Computer Science Student</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://chris-chevalier.herokuapp.com/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://chris-chevalier.herokuapp.com/about/">About Me</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://chris-chevalier.herokuapp.com/resume.pdf">Resume</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/chevalierc"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://www.linkedin.com/in/christopher-chevalier/"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2017 <a href="https://chris-chevalier.herokuapp.com/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">Developing an AI for 5600 Year Old Board Game</h1>
+    <span class="post-date">Jul 26, 2017
+    
+    <br/>
+    <a class="label" href="https://chris-chevalier.herokuapp.com/categories/projects">projects</a>
+    </span>
+    
+
+<p>For my senior project in college, my partner and myself decided to implement <a href="https://en.wikipedia.org/wiki/Royal_Game_of_Ur">The Royal Game of Ur</a>. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game <a href="https://en.wikipedia.org/wiki/Senet">Senet</a>. The Royal Game of Ur incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development as it will have to incorporate a good balance of game theory as well as decision making.</p>
+
+<p><img src="/board.jpg" alt="Royal Game Of Ur" title="The Board" /></p>
+
+<p><em>The Royal game of Ur</em></p>
+
+<h2 id="the-royal-game-of-ur-rules">The Royal Game of Ur Rules</h2>
+
+<p>The game is played by 2 players. The goal is to get their 7 game pieces to the end of the board before the other player. Each turn the player rolls four 4-sided dice. The dice has two <em>1s</em> and two <em>0s</em> so it ends up being equivalent to flipping 4 coins.</p>
+
+<p><img src="/piece-movement.jpg" alt="Piece Movement" title="Piece Movement" /></p>
+
+<p>Each roll, you can move a single piece the sum of your dice. You can move to a free spot or <em>capture</em> an opponent piece by landing on it. Additionally there is five <em>rosette</em> tiles which are both safe spaces as well as grant the player an additional roll.</p>
+
+<p><img src="/rosette-locations.jpg" alt="Rosette Location" title="Rosette Locations" /></p>
+
+<p>##AI Approach</p>
+
+<p>For the project I used a variation of the <a href="https://en.wikipedia.org/wiki/Minimax">Minimax</a> algorithm called <a href="https://en.wikipedia.org/wiki/Expectiminimax_tree">Expectiminimax</a>. This aversion varies from the original algorithm in that incorporates probability.</p>
+
+<p><img src="/minimax-demonstration.jpg" alt="Minimax Demonstration" title="Minimax Demonstration" /></p>
+
+<p>Minimax works on the theory that each player is trying to maximize there own score. For each turn of the AI it creates a tree of possible board <em>states</em> for a predetermined amount of turns. For this game there is no official score for a board so I created my own. This is called an <a href="https://en.wikipedia.org/wiki/Evaluation_function">Evaluation Function (Or heuristic)</a>. For our game the function looked like the below.</p>
+
+<p><img src="/ai-board-evaluation.jpg" alt="Board Evaluation Function" title="Board Evaluation Function" /></p>
+
+<p>It simply takes the sum of all the tile positions of your pieces and subtracts the sum of all the tile positions of your opponent. The evaluation function greatly determines the personality of your AI. It is much more an art then a science to create one. For this game I focused on having the AI get to rosette tiles and safe tiles. Because the first four tiles have a higher values than the next few tiles it encourages the AI to stay in the safe row until it either can&rsquo;t or it is worth capturing an opponent piece. The tile value increases as it moves along the path to encourage the AI to move towards the end. Finally having a piece finish the path is worth much more than all else because ultimately that is the most important goal of the game.</p>
+
+<p><img src="/expected-minimax.jpg" alt="Expectiminimax Demonstration" title="Expectiminimax Demonstration" /></p>
+
+<p>Because the game is <a href="https://en.wikipedia.org/wiki/Stochastic">Stochastic (random)</a> we had to use Expectiminimax. This varies from traditional Minimax in that each nodes utility is multiplied by its probability. The pseudocode for this algorithm is available on its Wikipedia page.</p>
+
+  </div>
+  
+</div>
+
+
+
+
+<script src="https://chris-chevalier.herokuapp.com/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

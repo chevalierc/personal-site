@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://chris-chevalier.com/</loc>
+    <loc>https://chris-chevalier.herokuapp.com/blog/2017/07/26/developing-an-ai-for-5600-year-old-board-game/</loc>
+    <lastmod>2017-07-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chris-chevalier.herokuapp.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</loc>
     <lastmod>2017-05-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</loc>
-    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://chris-chevalier.com/about/</loc>
+    <loc>https://chris-chevalier.herokuapp.com/about/</loc>
     <lastmod>2017-05-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://chris-chevalier.com/blog/2017/05/14/machine-generated-music/</loc>
+    <loc>https://chris-chevalier.herokuapp.com/blog/2017/05/14/machine-generated-music/</loc>
     <lastmod>2017-05-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chris-chevalier.herokuapp.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chris-chevalier.herokuapp.com/</loc>
+    <lastmod>2017-07-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chris-chevalier.herokuapp.com/post/</loc>
+    <lastmod>2017-07-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://chris-chevalier.herokuapp.com/categories/projects/</loc>
+    <lastmod>2017-07-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>
