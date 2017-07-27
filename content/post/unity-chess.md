@@ -8,7 +8,7 @@ categories = ["projects"]
 
 For my senior project in college, my partner and myself decided to implement [The Royal Game of Ur](https://en.wikipedia.org/wiki/Royal_Game_of_Ur) with the major focus being on exploring different AI techniques within the board game. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game [Senet](https://en.wikipedia.org/wiki/Senet). The Royal Game of Ur incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development as it will have to incorporate a good balance of game theory as well as decision making.
 
-![Royal Game Of ur](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bm-royalgame.jpg/1024px-Bm-royalgame.jpg "Royal Game Of ur")
+![Royal Game Of Ur](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bm-royalgame.jpg/1024px-Bm-royalgame.jpg "Royal Game Of ur")
 
 *The Royal game of Ur*
 
