@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Chris Chevalier</title>
-    <link>https://chris-chevalier.herokuapp.com/categories/</link>
+    <link>http://www.chris-chevalier.com/categories/</link>
     <description>Recent content in Categories on Chris Chevalier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://chris-chevalier.herokuapp.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.chris-chevalier.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Projects</title>
-      <link>https://chris-chevalier.herokuapp.com/categories/projects/</link>
+      <link>http://www.chris-chevalier.com/categories/projects/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://chris-chevalier.herokuapp.com/categories/projects/</guid>
+      <guid>http://www.chris-chevalier.com/categories/projects/</guid>
       <description></description>
     </item>
     

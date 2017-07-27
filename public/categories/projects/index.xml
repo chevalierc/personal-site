@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Chris Chevalier</title>
-    <link>https://chris-chevalier.herokuapp.com/categories/projects/</link>
+    <link>http://www.chris-chevalier.com/categories/projects/</link>
     <description>Recent content in Projects on Chris Chevalier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 26 Jul 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://chris-chevalier.herokuapp.com/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.chris-chevalier.com/categories/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Developing an AI for a 5600 Year Old Board Game</title>
-      <link>https://chris-chevalier.herokuapp.com/blog/2017/07/26/developing-an-ai-for-a-5600-year-old-board-game/</link>
+      <link>http://www.chris-chevalier.com/blog/2017/07/26/developing-an-ai-for-a-5600-year-old-board-game/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://chris-chevalier.herokuapp.com/blog/2017/07/26/developing-an-ai-for-a-5600-year-old-board-game/</guid>
+      <guid>http://www.chris-chevalier.com/blog/2017/07/26/developing-an-ai-for-a-5600-year-old-board-game/</guid>
       <description>For my senior project in college, my partner and myself decided to implement The Royal Game of Ur. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game Senet. The Royal Game of Ur incorporates both strategy and luck.</description>
     </item>
     
     <item>
       <title>Developing Chess in the Unity game engine</title>
-      <link>https://chris-chevalier.herokuapp.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</link>
+      <link>http://www.chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</link>
       <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://chris-chevalier.herokuapp.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</guid>
+      <guid>http://www.chris-chevalier.com/blog/2017/05/24/developing-chess-in-the-unity-game-engine/</guid>
       <description>For my senior project in college, my partner and myself decided to implement The Royal Game of Ur with the major focus being on exploring different AI techniques within the board game. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game Senet.</description>
     </item>
     
     <item>
       <title>Machine Generated Music</title>
-      <link>https://chris-chevalier.herokuapp.com/blog/2017/05/14/machine-generated-music/</link>
+      <link>http://www.chris-chevalier.com/blog/2017/05/14/machine-generated-music/</link>
       <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://chris-chevalier.herokuapp.com/blog/2017/05/14/machine-generated-music/</guid>
+      <guid>http://www.chris-chevalier.com/blog/2017/05/14/machine-generated-music/</guid>
       <description>For my colleges Intro to AI class final project myself and another decided to explore composing music using machine learning. This is in no way a unique project. Others have done similar before. My favorite implementation I saw was this program which uses neural networks to allow you to play a piano duet with the AI.
 Project Background: Bitstream files such as MP3 and Wavs which store music as sine waves would be very difficult to use as the data is continuous and unlabeled.</description>
     </item>
