@@ -36,4 +36,6 @@ Because the game is [Stochastic (random)](https://en.wikipedia.org/wiki/Stochast
 
 Ultimately it was a fun project. I had experience with the Minimax algorithm and other AI concepts but previously done few projects with it from the ground up.
 
+[Download Finished Game](/Royal-Game-Of-Ur.exe)
+
 [Feel free to look through my code here](https://github.com/chevalierc/RoyalGameOfUr)

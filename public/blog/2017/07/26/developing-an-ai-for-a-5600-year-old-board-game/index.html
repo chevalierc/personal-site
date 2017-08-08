@@ -93,7 +93,7 @@
     </span>
     
 
-<p>For my senior project in college, my partner and myself decided to implement <a href="https://en.wikipedia.org/wiki/Royal_Game_of_Ur">The Royal Game of Ur</a>. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates saying it existed before 2600 BC. Historians suggest the oldest to be the Egyptian game <a href="https://en.wikipedia.org/wiki/Senet">Senet</a>. The Royal Game of Ur incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development as it will have to incorporate a good balance of game theory as well as decision making.</p>
+<p>For my senior project in college, my partner and myself decided to implement <a href="https://en.wikipedia.org/wiki/Royal_Game_of_Ur">The Royal Game of Ur</a>. The Royal Game of Ur is a two player board game found in the Royal Tomb of Ur in Iraq. It is considered the second oldest game with estimates revealing it existed prior to 2600 BC. The only known game that is older is the Egyptian game  <a href="https://en.wikipedia.org/wiki/Senet">Senet</a>. The Royal Game of Ur incorporates both strategy and luck. Because of the stochastic nature of the gameplay, we believed it would be a good challenge for AI development as it will have to incorporate a good balance of game theory as well as decision making.</p>
 
 <p><img src="/board.jpg" alt="Royal Game Of Ur" title="The Board" /></p>
 
@@ -103,23 +103,27 @@
 
 <p><img src="/piece-movement.jpg" alt="Piece Movement" title="Piece Movement" /></p>
 
-<p>Each roll, you can move a single piece the sum of your dice. You can move to a free spot or <em>capture</em> an opponent piece by landing on it. Additionally there is five <em>rosette</em> tiles which are both safe spaces as well as grant the player an additional roll.</p>
+<p>Each roll, you can move a single piece the sum of your dice. You can move to a free spot or <em>capture</em> an opponent piece by landing on it. Additionally there is five <em>rosette</em> tiles which are both safe spaces and grant the player an additional roll.</p>
 
 <p><img src="/rosette-locations.jpg" alt="Rosette Location" title="Rosette Locations" /></p>
 
 <h2 id="ai-approach">AI Approach</h2>
 
-<p>For the project I used a variation of the <a href="https://en.wikipedia.org/wiki/Minimax">Minimax</a> algorithm called <a href="https://en.wikipedia.org/wiki/Expectiminimax_tree">Expectiminimax</a>. This aversion varies from the original algorithm in that incorporates probability.</p>
+<p>For the project I used a variation of the <a href="https://en.wikipedia.org/wiki/Minimax">Minimax</a> algorithm called <a href="https://en.wikipedia.org/wiki/Expectiminimax_tree">Expectiminimax (Expected Minimax)</a>. This version varies from the original algorithm in that it incorporates probability in it&rsquo;s decision making.</p>
 
 <p><img src="/minimax-demonstration.jpg" alt="Minimax Demonstration" title="Minimax Demonstration" /></p>
 
-<p>Minimax works on the theory that each player is trying to maximize there own score. For each turn of the AI it creates a tree of possible board <em>states</em> for a predetermined amount of turns. For this game there is no official score for a board so I created my own. This is called an <a href="https://en.wikipedia.org/wiki/Evaluation_function">Evaluation Function (Or heuristic)</a>. For our game the function looked like the below.</p>
+<p>Minimax works on the theory that each player is trying to maximize there own score (equivalent to minimizing your opponents). For each of the AI&rsquo;s turns, it creates a tree of possible board <em>states</em> for a predetermined amount of turns. For this game there is no official score for a board so I created my own. This is called an <a href="https://en.wikipedia.org/wiki/Evaluation_function">evaluation function (Or heuristic)</a>. For our game the function looked like the below.</p>
 
 <p><img src="/ai-board-evaluation.jpg" alt="Board Evaluation Function" title="Board Evaluation Function" /></p>
 
 <p>It simply takes the sum of all the tile positions of your pieces and subtracts the sum of all the tile positions of your opponent. The evaluation function greatly determines the personality of your AI. It is much more an art then a science to create one. For this game I focused on having the AI get to rosette tiles and safe tiles. Because the first four tiles have a higher values than the next few tiles it encourages the AI to stay in the safe row until it either can&rsquo;t or it is worth capturing an opponent piece. The tile value increases as it moves along the path to encourage the AI to move towards the end. Finally having a piece finish the path is worth much more than all else because ultimately that is the most important goal of the game.</p>
 
-<p>Because the game is <a href="https://en.wikipedia.org/wiki/Stochastic">Stochastic (random)</a> we had to use Expectiminimax. This varies from traditional Minimax in that each nodes utility is multiplied by its probability. The pseudocode for this algorithm is available on its Wikipedia page.</p>
+<p>Because the game is <a href="https://en.wikipedia.org/wiki/Stochastic">Stochastic (random)</a> we had to use Expectiminimax. This varies from traditional Minimax in that each states utility is multiplied by its probability. The pseudocode for this algorithm is available on its Wikipedia page.</p>
+
+<p>Ultimately it was a fun project. I had experience with the Minimax algorithm and other AI concepts but previously done few projects with it from the ground up.</p>
+
+<p><a href="/Royal-Game-Of-Ur.exe">Download Finished Game</a></p>
 
 <p><a href="https://github.com/chevalierc/RoyalGameOfUr">Feel free to look through my code here</a></p>
 
